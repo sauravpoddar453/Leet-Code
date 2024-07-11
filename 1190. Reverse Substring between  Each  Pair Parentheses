@@ -1,0 +1,20 @@
+class Solution {
+public:
+    string reverseParentheses(string s) {
+        string stk, rev;
+        for(char a:s){
+            if(a!=')') stk.push_back(a);
+            else{
+                rev="";
+                char r=stk.back();
+                for(;r!='(' ; r=stk.back()){
+                    rev+=r;
+                    stk.pop_back();
+                }
+                stk.pop_back();
+                stk +=rev;
+            }
+        }
+        return stk;
+    }
+};
